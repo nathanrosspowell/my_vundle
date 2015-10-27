@@ -1,13 +1,12 @@
-:set guioptions-=m  "remove menu bar
-:set guioptions-=T  "remove toolbar
-:set guioptions-=r  "remove right-hand scroll bar
-:set guioptions-=L  "remove left-hand scroll bar
-
-" Set the font.
 if has( "gui_running" )
+    " Set the font.
     if has( "gui_gtk2" )
         set guifont=Inconsolata\ 10
     elseif has( "gui_win32" )
         set guifont=Consolas:h10:cANSI
     endif
+    :set guioptions-=m  "remove menu bar
+    :set guioptions-=T  "remove toolbar
+    :set guioptions-=r  "remove right-hand scroll bar
+    :set guioptions-=L  "remove left-hand scroll bar
 endif
