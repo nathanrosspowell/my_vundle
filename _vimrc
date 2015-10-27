@@ -9,8 +9,8 @@ Plugin 'VundleVim/Vundle.vim' " let Vundle manage Vundle, required
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-sensible'
 Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'jnurmine/Zenburn'
+Plugin 'itchyny/lightline.vim'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'spolu/dwm.vim'
 Plugin 'vim-scripts/Cpp11-Syntax-Support'
 Plugin 'Mizuchi/STL-Syntax'
@@ -47,10 +47,13 @@ nnoremap k gk
 " Better clipboard copy and paste.
 set clipboard=unnamed
 
-" Use Zenburn colour scheme
-set t_Co=256
+" Use solarized colour scheme
+syntax enable
 set background=dark
-colorscheme zenburn
+colorscheme solarized
+let g:lightline = {
+      \ 'colorscheme': 'solarized_dark',
+      \ }
 
 " C/C++ settings.
 au BufRead,BufNewFile *.inl set filetype=cpp
@@ -64,3 +67,6 @@ au BufRead,BufNewFile *.ino set filetype=cpp
 au BufNewFile,BufRead *.ino set syntax=cpp11
 inoremap <left> <nop>
 inoremap <right> <nop>
+
+" Cut all trailing white space
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
